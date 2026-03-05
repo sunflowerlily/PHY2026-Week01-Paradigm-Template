@@ -5,17 +5,31 @@
 2.  **物理洞察**: 理解数值计算中**截断误差 (Truncation Error)** 与 **舍入误差 (Round-off Error)** 的博弈。
 3.  **AI 协同**: 体验 "Blindly trusting AI" (盲信 AI) 与 "Guiding AI with Physics" (物理引导 AI) 的区别。
 
-## 👥 参与方式
-本实验支持 **单人挑战** 或 **小组协作 (Max 3人)**。
+## 👥 参与方式 (GitHub Classroom 操作指南)
+本实验在 GitHub Classroom 上设置为 **Group Assignment**（小组作业），但也完全支持单人挑战。**请在点击邀请链接后仔细操作**：
 
-| 模式 | 推荐人群 | 预估耗时 | 说明 |
+### 1. 想要【单人挑战】的同学 (Solo Mode)
+*   点击邀请链接后，GitHub 会问你 "Join an existing team" 还是 "Create a new team"。
+*   **请选择 "Create a new team"**。
+*   **Team Name 命名规则**: `Solo-学号-姓名拼音` (例如: `Solo-2024001-ZhangSan`)。
+*   创建后，你将独自拥有一个仓库，独自完成所有 Part A, B, C。
+
+### 2. 想要【小组协作】的同学 (Team Mode)
+*   **第一个人 (队长)**：
+    *   点击邀请链接 -> 选择 "Create a new team"。
+    *   **Team Name 命名规则**: `Team-队名` (例如: `Team-Alpha`)。
+    *   创建后，把你的队名告诉队友。
+*   **第二/三个人 (队员)**：
+    *   点击邀请链接 -> **不要创建新队**。
+    *   在列表中找到队长的 `Team-Alpha`，点击 **Join**。
+*   **注意**: 
+    *   一旦加入队伍，通常无法自行退出，请谨慎操作。
+    *   所有组员共享同一个仓库，请多使用 `git pull` 避免冲突。
+
+| 模式 | 推荐人群 | 预估耗时 | 分工建议 |
 |:---|:---|:---|:---|
-| **单人模式** (Solo) | 编程基础较好，想挑战全栈能力 | **2-3 小时** | 独立完成所有代码与报告，虽辛苦但收获最大。 |
-| **小组模式** (Team) | 编程新手，或希望通过讨论深化理解 | **1-1.5 小时** | 3人分工，每人只需专注一个模块，需花时间整合。 |
-
-*   **Member A (Core Algorithm)**: 负责 `lab1_core`，实现基础的中心差分算法，绘制误差曲线。
-*   **Member B (Advanced Algorithm)**: 负责 `lab2_bonus`，研究 **Richardson 外推法**。
-*   **Member C (Data & Visualization)**: 负责 `notebook_error.ipynb`，汇总数据并撰写报告。
+| **单人模式** | 编程基础较好，挑战全栈 | **2-3h** | 独立完成所有模块。 |
+| **小组模式** | 编程新手，合作学习 | **1-1.5h** | Member A: Core; Member B: Bonus; Member C: Report. |
 
 ## 📂 目录结构
 ```tree
