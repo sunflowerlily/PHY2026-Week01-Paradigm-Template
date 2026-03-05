@@ -5,33 +5,36 @@
 2.  **物理洞察**: 理解数值计算中**截断误差 (Truncation Error)** 与 **舍入误差 (Round-off Error)** 的博弈。
 3.  **AI 协同**: 体验 "Blindly trusting AI" (盲信 AI) 与 "Guiding AI with Physics" (物理引导 AI) 的区别。
 
-## 👥 小组分工建议 (3人/组)
-为了高效完成本次实验并深入探究，建议按角色分工：
-*   **Member A (Core Algorithm)**: 负责 `lab1_core`，实现基础的中心差分算法，绘制误差曲线。这是所有后续工作的基础。
-*   **Member B (Advanced Algorithm)**: 负责 `lab2_bonus`，研究 **Richardson 外推法**。尝试证明：通过简单的数学组合，我们可以把精度从 $O(h^2)$ 提升到 $O(h^4)$，甚至 $O(h^6)$。
-*   **Member C (Data & Visualization)**: 负责 `notebook_error.ipynb`。汇总 A 和 B 的数据，在同一张图上对比两种算法的误差曲线，并撰写最终的实验报告 `Report_Template.md`。
+## 👥 参与方式
+本实验支持 **单人挑战** 或 **小组协作 (Max 3人)**。
+
+*   **单人模式 (Solo)**: 你需要独立完成 Part A, B, C 的所有代码与报告。虽然工作量稍大，但这是打通计算物理全流程的最佳训练。
+*   **小组模式 (Team)**: 
+    *   **Member A**: 负责 `lab1_core` (基础算法)。
+    *   **Member B**: 负责 `lab2_bonus` (Richardson 外推)。
+    *   **Member C**: 负责 `notebook_error.ipynb` (数据整合与报告)。
 
 ## 📂 目录结构
 ```tree
 .
 ├── README.md               # [To Student] 实验指导书
-├── Report_Template.md      # [Team] 最终实验报告模板
+├── Report_Template.md      # [Team/Solo] 最终实验报告模板
 ├── requirements.txt        # 依赖包列表
-├── notebook_error.ipynb    # [Member C] 数据汇总与可视化笔记本
-├── lab1_core/              # [Member A] 核心任务
+├── notebook_error.ipynb    # [Visualization] 数据汇总与可视化笔记本
+├── lab1_core/              # [Core Task] 核心任务
 │   ├── src/
 │   │   ├── ai_bad_code.py      # [Part A] 一个充满陷阱的 AI 生成代码
 │   │   └── differentiation.py  # [Part B] 核心代码模板
 │   └── tests/
 │       └── test_core.py        # 自动评分脚本
-└── lab2_bonus/             # [Member B] 进阶任务
+└── lab2_bonus/             # [Bonus Task] 进阶任务
     └── src/
-        └── richardson.py       # [Bonus] 高阶精度算法模板
+        └── richardson.py       # [Part C] 高阶精度算法模板
 ```
 
 ## 🚀 任务指南
 
-### Part A: AI 的物理陷阱 (The Trap) - 全员参与
+### Part A: AI 的物理陷阱 (The Trap)
 1.  进入 `lab1_core/src/` 目录。
 2.  运行 `python ai_bad_code.py`。
 3.  你会发现程序输出了一个警告，或者计算出的导数误差巨大。
@@ -39,7 +42,7 @@
     *   *提示*: 回忆课堂上讲的浮点数精度 ($\epsilon \approx 10^{-16}$)。
     *   在 `ai_bad_code.py` 的注释中简要写下你的分析。
 
-### Part B: 核心重构 (Core) - Member A 主导
+### Part B: 核心重构 (Core)
 1.  打开 `lab1_core/src/differentiation.py`。
 2.  这是一个未完成的模板。你需要实现 `central_difference` 函数，并完成 `analyze_error` 函数中的绘图逻辑。
 3.  **核心任务**:
@@ -48,22 +51,22 @@
     *   绘制双对数坐标图 (log-log plot): 横轴为 $h$，纵轴为相对误差。
     *   找出误差最小的 **最优步长 (Optimal Step Size)**。
 
-### Part C: 进阶挑战 (Bonus) - Member B 主导
+### Part C: 进阶挑战 (Bonus)
 1.  打开 `lab2_bonus/src/richardson.py`。
 2.  研究 Richardson 外推法原理（或询问 AI："Explain Richardson extrapolation for numerical differentiation"）。
 3.  实现 $D_{richardson}(h) = \frac{4 D(h/2) - D(h)}{3}$。
 4.  验证其误差是否真的比普通中心差分更小。尝试用大步长（如 $h=0.1$）获得高精度。
 
-### Part D: 验证与提交 - Member C 主导
+### Part D: 验证与提交
 1.  运行测试脚本检查代码是否正确:
     ```bash
     pytest lab1_core/tests/test_core.py
     ```
-2.  **整合报告**: 将 A 和 B 的结果填入 `Report_Template.md`。
+2.  **整合报告**: 运行 `notebook_error.ipynb`，对比两种算法的精度，并将结果填入 `Report_Template.md`。
 3.  提交代码到 GitHub:
     ```bash
     git add .
-    git commit -m "feat: completed week 1 assignment with bonus"
+    git commit -m "feat: completed week 1 assignment"
     git push
     ```
 
