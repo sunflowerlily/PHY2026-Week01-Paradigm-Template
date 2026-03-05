@@ -6,45 +6,48 @@
 3.  **AI 协同**: 体验 "Blindly trusting AI" (盲信 AI) 与 "Guiding AI with Physics" (物理引导 AI) 的区别。
 
 ## 👥 参与方式 (GitHub Classroom 操作指南)
-本实验在 GitHub Classroom 上设置为 **Group Assignment**（小组作业），但也完全支持单人挑战。**请在点击邀请链接后仔细操作**：
+本实验在 GitHub Classroom 上设置为 **Group Assignment**（小组作业）。
+**考虑到班级规模 (53人)，建议组成 10-12 个小组，每组 4-5 人。**
 
-### 1. 想要【单人挑战】的同学 (Solo Mode)
-*   点击邀请链接后，GitHub 会问你 "Join an existing team" 还是 "Create a new team"。
-*   **请选择 "Create a new team"**。
-*   **Team Name 命名规则**: `Solo-学号-姓名拼音` (例如: `Solo-2024001-ZhangSan`)。
-*   创建后，你将独自拥有一个仓库，独自完成所有 Part A, B, C。
-
-### 2. 想要【小组协作】的同学 (Team Mode)
-*   **第一个人 (队长)**：
+### 建组规则 (Team Setup)
+1.  **队长 (Team Leader)**：
     *   点击邀请链接 -> 选择 "Create a new team"。
-    *   **Team Name 命名规则**: `Team-队名` (例如: `Team-Alpha`)。
-    *   创建后，把你的队名告诉队友。
-*   **第二/三个人 (队员)**：
+    *   **Team Name**: `Group-XX` (例如 `Group-01`, `Group-12`)。
+    *   创建后，将组名告知队友。
+2.  **队员 (Members)**：
     *   点击邀请链接 -> **不要创建新队**。
-    *   在列表中找到队长的 `Team-Alpha`，点击 **Join**。
-*   **注意**: 
-    *   一旦加入队伍，通常无法自行退出，请谨慎操作。
-    *   所有组员共享同一个仓库，请多使用 `git pull` 避免冲突。
+    *   在列表中找到队长的 `Group-XX`，点击 **Join**。
 
-| 模式 | 推荐人群 | 预估耗时 | 分工建议 |
+| 模式 | 人数 | 预估耗时 | 说明 |
 |:---|:---|:---|:---|
-| **单人模式** | 编程基础较好，挑战全栈 | **2-3h** | 独立完成所有模块。 |
-| **小组模式** | 编程新手，合作学习 | **1-1.5h** | Member A: Core; Member B: Bonus; Member C: Report. |
+| **标准小组** | **4-5人** | **1 小时** | 分工明确，流水线作业，适合高效完成任务。 |
+| **硬核单人** | 1人 | 3 小时 | 仅限想要挑战全栈能力的同学 (需向老师报备)。 |
+
+### 🛠️ 角色分工建议 (Roles)
+为了防止“搭便车”，请明确认领以下角色（可在报告中署名）：
+
+*   **Member A (Core Dev)**: 负责 `lab1_core`，实现核心差分算法。
+*   **Member B (Algo Dev)**: 负责 `lab2_bonus`，攻克 Richardson 外推法。
+*   **Member C (Data Vis)**: 负责 `notebook_error.ipynb`，将 A 和 B 的数据可视化对比。
+*   **Member D (QA Engineer)**: **质量保证**。负责运行 `pytest`，检查代码规范 (PEP8)，确保无低级错误。
+*   **Member E (Physics Lead)**: **物理分析**。主笔实验报告，深度解释“V字形误差曲线”背后的物理机制。
+
+*(若小组只有 4 人，可由 Member D 兼任 Report 工作)*
 
 ## 📂 目录结构
 ```tree
 .
 ├── README.md               # [To Student] 实验指导书
-├── Report_Template.md      # [Team/Solo] 最终实验报告模板
+├── Report_Template.md      # [Team] 最终实验报告模板
 ├── requirements.txt        # 依赖包列表
-├── notebook_error.ipynb    # [Visualization] 数据汇总与可视化笔记本
-├── lab1_core/              # [Core Task] 核心任务
+├── notebook_error.ipynb    # [Member C] 数据汇总与可视化笔记本
+├── lab1_core/              # [Member A] 核心任务
 │   ├── src/
-│   │   ├── ai_bad_code.py      # [Part A] 一个充满陷阱的 AI 生成代码
+│   │   ├── ai_bad_code.py      # [Part A] AI 陷阱分析
 │   │   └── differentiation.py  # [Part B] 核心代码模板
 │   └── tests/
-│       └── test_core.py        # 自动评分脚本
-└── lab2_bonus/             # [Bonus Task] 进阶任务
+│       └── test_core.py        # [Member D] 自动评分脚本
+└── lab2_bonus/             # [Member B] 进阶任务
     └── src/
         └── richardson.py       # [Part C] 高阶精度算法模板
 ```
@@ -75,11 +78,11 @@
 4.  验证其误差是否真的比普通中心差分更小。尝试用大步长（如 $h=0.1$）获得高精度。
 
 ### Part D: 验证与提交
-1.  运行测试脚本检查代码是否正确:
+1.  **QA 环节 (Member D)**: 运行测试脚本检查代码是否正确:
     ```bash
     pytest lab1_core/tests/test_core.py
     ```
-2.  **整合报告**: 运行 `notebook_error.ipynb`，对比两种算法的精度，并将结果填入 `Report_Template.md`。
+2.  **整合报告 (Member C & E)**: 运行 `notebook_error.ipynb`，对比两种算法的精度，并将结果填入 `Report_Template.md`。
 3.  提交代码到 GitHub:
     ```bash
     git add .
