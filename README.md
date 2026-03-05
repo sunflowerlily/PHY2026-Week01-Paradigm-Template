@@ -8,11 +8,14 @@
 ## 👥 参与方式
 本实验支持 **单人挑战** 或 **小组协作 (Max 3人)**。
 
-*   **单人模式 (Solo)**: 你需要独立完成 Part A, B, C 的所有代码与报告。虽然工作量稍大，但这是打通计算物理全流程的最佳训练。
-*   **小组模式 (Team)**: 
-    *   **Member A**: 负责 `lab1_core` (基础算法)。
-    *   **Member B**: 负责 `lab2_bonus` (Richardson 外推)。
-    *   **Member C**: 负责 `notebook_error.ipynb` (数据整合与报告)。
+| 模式 | 推荐人群 | 预估耗时 | 说明 |
+|:---|:---|:---|:---|
+| **单人模式** (Solo) | 编程基础较好，想挑战全栈能力 | **2-3 小时** | 独立完成所有代码与报告，虽辛苦但收获最大。 |
+| **小组模式** (Team) | 编程新手，或希望通过讨论深化理解 | **1-1.5 小时** | 3人分工，每人只需专注一个模块，需花时间整合。 |
+
+*   **Member A (Core Algorithm)**: 负责 `lab1_core`，实现基础的中心差分算法，绘制误差曲线。
+*   **Member B (Advanced Algorithm)**: 负责 `lab2_bonus`，研究 **Richardson 外推法**。
+*   **Member C (Data & Visualization)**: 负责 `notebook_error.ipynb`，汇总数据并撰写报告。
 
 ## 📂 目录结构
 ```tree
